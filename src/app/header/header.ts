@@ -8,4 +8,5 @@ import { Component, input } from '@angular/core';
 })
 export class Header {
   titulo = input<string>("4VPizzeria");
+  
 }

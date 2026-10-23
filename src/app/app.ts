@@ -4,9 +4,10 @@ import { Header } from './header/header';
 import { ModelPizza } from './models/ModelPizza';
 import { CardPizza } from './card-pizza/card-pizza';
 import { Formulario } from './formulario/formulario';
+import { Navbar } from './navbar/navbar';
 
 @Component({
-  imports: [RouterOutlet, Header, CardPizza, Formulario],
+  imports: [RouterOutlet, Header, CardPizza, Formulario, Navbar],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
