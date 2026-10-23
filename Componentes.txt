@@ -1,0 +1,7 @@
+1. Compinentes
+    -Header
+    -Navbar(filtro)
+    -Lista de Pizzas
+    -Formulario
+    -Footer
+
