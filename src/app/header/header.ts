@@ -8,11 +8,6 @@ import { Component, computed, input, output, signal } from '@angular/core';
 })
 export class Header {
   titulo = input<string>("4VPizzeria");
-  buscarIngrediente = "";
   
-  busqueda = output<string>();
-  public botonBuscarIngrediente() {
-    this.busqueda.emit(this.buscarIngrediente);
-  }
   
 }

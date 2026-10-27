@@ -1,4 +1,4 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 
 @Component({
   imports: [],
@@ -8,18 +8,11 @@ import { Component, computed, input, signal } from '@angular/core';
 })
 export class Navbar {
 
-  buscarIngrediente = signal("");
-  pizzas = input<any[]>([]);
-
-  pizzasFiltradas = computed(() => {
-    const texto = this.buscarIngrediente().toLocaleLowerCase().trim();
-
-    if (!texto) 
-      return this.pizzas();
-    else
-    return this.pizzas().filter(pizza =>
-      pizza.ingredientes.some((ing: string) => ing.toLowerCase().includes(texto))
-    )
-  })
+  buscarIngrediente = "";
+  
+  busqueda = output<string>();
+  public botonBuscarIngrediente() {
+    this.busqueda.emit(this.buscarIngrediente);
+  }
 
 }

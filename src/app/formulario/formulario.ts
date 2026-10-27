@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   imports: [],
@@ -11,4 +12,10 @@ export class Formulario {
   public seleccionarMetodoDePago(tipoDePago: string) {
     this.tipoDePago.set(tipoDePago);
   }
+  direccion = new FormControl("");
+  bizumNumeroTel = new FormControl("");
+  numeroTarjeta = new FormControl("");
+  ccvNum = new FormControl("");
+
+
 }
