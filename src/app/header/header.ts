@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 
 @Component({
   imports: [],
@@ -8,5 +8,11 @@ import { Component, input } from '@angular/core';
 })
 export class Header {
   titulo = input<string>("4VPizzeria");
+  buscarIngrediente = "";
+  
+  busqueda = output<string>();
+  public botonBuscarIngrediente() {
+    this.busqueda.emit(this.buscarIngrediente);
+  }
   
 }

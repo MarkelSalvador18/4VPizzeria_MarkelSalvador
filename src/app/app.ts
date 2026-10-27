@@ -13,7 +13,15 @@ import { Navbar } from './navbar/navbar';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('4VPizzas');
+  
+  public filtrar(txt: string) {
+    this.pizzasEncotradas = [];
+    for (let pizz of this.pizzas){
+      if (pizz.ingredientes.toLowerCase().includes(txt.toLowerCase())) {
+        this.pizzasEncotradas.push(pizz);
+      }
+    }
+  }
 
   pizzas: ModelPizza[] = [
     {
@@ -60,7 +68,7 @@ export class App {
   },
   {
     nombre: "Mexicana",
-    imagen: "https://tse2.mm.bing.net/th/id/OIP.4g8p9e3uYtY8qJv0xFJvWQHaE8?pid=Api",
+    imagen: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.N2oLNfaaof5CtCHP0uSm_gHaE8%3Fpid%3DApi&f=1&ipt=b867b0593067f604009370b03432ee4a86ead8ff9809b98aebfc6c2fbb40b60a&ipo=images",
     precio: 14,
     ingredientes: "Tomate, mozzarella, carne picante, jalapeños y cebolla"
   },
@@ -112,7 +120,9 @@ export class App {
     precio: 14,
     ingredientes: "Tomate, mozzarella, salami picante y chile"
   }
-  ];
+  ]
+pizzasEncotradas: ModelPizza[]=this.pizzas;
+
 }
 
 
