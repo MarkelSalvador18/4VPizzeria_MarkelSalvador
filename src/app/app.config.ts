@@ -1,10 +1,10 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
+import { provideRouter, Routes } from '@angular/router';
+import { CardPizza } from './card-pizza/card-pizza';
+import { Formulario } from './formulario/formulario';
 
-export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
-  ]
-};
+export const routes: Routes = [
+    { path: '', component: CardPizza },
+    { path: 'listaDePizzas', component: CardPizza },
+    { path: 'formulario', component: Formulario },
+];

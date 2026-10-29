@@ -1,45 +1,46 @@
-<form>
+<form [formGroup]="agrupar">
     <div class="row mb-3">
       <label for="inputText" class="col-sm-2 col-form-label">Direccion</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputText">
+        <input formControlName="direccion" type="email" class="form-control" id="inputText">
       </div>
     </div>
     <div class="row mb-3">
       <label for="inputHours" class="col-sm-2 col-form-label">Hora</label>
       <div class="col-sm-10">
-        <input type="time" class="form-control" id="inputHours">
+        <input formControlName="hora" type="time" class="form-control" id="inputHours">
       </div>
     </div>
     <fieldset class="row mb-3">
       <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input (change)="seleccionarMetodoDePago('bizum')" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <input formControlName="tipoDePago" class="form-check-input" type="radio" name="gridRadios" id="bizum" value="bizum">
           <label class="form-check-label" for="gridRadios1">
             Bizum
           </label>
         </div>
         <div class="form-check">
-          <input (change)="seleccionarMetodoDePago('tarjeta')" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <input formControlName="tipoDePago" class="form-check-input" type="radio" name="gridRadios" id="tarjeta" value="tarjeta" >
           <label class="form-check-label" for="gridRadios2">
             Tarjeta
           </label>
 
         </div>
 
-        @if (tipoDePago() == 'bizum') {
-          <input type="text" class="form-control" id="inputTextTel"> 
-        } @else {
-          <input type="text" class="form-control" id="inputTextTel"> 
+        @if (agrupar.controls.tipoDePago.value == 'bizum') {
+          
+          <input formControlName="bizumNumeroTel" type="text" class="form-control" id="inputTextTel"> 
+        } @else if(agrupar.controls.tipoDePago.value == 'tarjeta') {
+          <input formControlName="numeroTarjeta" type="text" class="form-control" id="inputTextTel"> 
           <label class="form-check-label" for="gridRadios2">
             
           </label>
-          <input type="month" class="form-control" id="inputTextTel">
+          <input formControlName="fecha" type="month" class="form-control" id="inputTextTel">
           <label class="form-check-label" for="gridRadios2">
             
           </label> 
-          <input type="text" class="form-control" id="inputTextTel"> 
+          <input formControlName="ccvNum" type="text" class="form-control" id="inputTextTel"> 
           <label class="form-check-label" for="gridRadios2">
             CVV
           </label>

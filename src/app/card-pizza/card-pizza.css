@@ -1,0 +1,9 @@
+.carrito-icon {
+  background-color: #ffcc00; /* color del fondo */
+  padding: 8px;              /* espacio alrededor del icono */
+  border-radius: 8px;        /* bordes redondeados */
+  cursor: pointer;           /* cursor de mano */
+  display: inline-flex;      /* centra el icono */
+  align-items: center;
+  justify-content: center;
+}

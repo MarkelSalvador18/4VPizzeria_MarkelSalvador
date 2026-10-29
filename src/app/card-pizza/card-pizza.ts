@@ -1,4 +1,4 @@
-import { Component, ModelFunction , input} from '@angular/core';
+import { Component, EventEmitter, ModelFunction, Output, input } from '@angular/core';
 import { ModelPizza } from '../models/ModelPizza';
 
 @Component({
@@ -9,5 +9,15 @@ import { ModelPizza } from '../models/ModelPizza';
 })
 export class CardPizza {
 
-    pizza = input.required<ModelPizza>();
+
+  pizza = input.required<ModelPizza>();
+
+  @Output() cantidadSeleccionada = new EventEmitter<number>();
+  cantidad: number = 1;
+
+
+  public onCarritoClick() {
+    this.cantidadSeleccionada.emit(this.cantidad);
+  }
+
 }
