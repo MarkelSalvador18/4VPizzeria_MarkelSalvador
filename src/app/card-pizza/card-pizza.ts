@@ -11,13 +11,6 @@ export class CardPizza {
 
 
   pizza = input.required<ModelPizza>();
-
-  @Output() cantidadSeleccionada = new EventEmitter<number>();
-  cantidad: number = 1;
-
-
-  public onCarritoClick() {
-    this.cantidadSeleccionada.emit(this.cantidad);
-  }
+  
 
 }

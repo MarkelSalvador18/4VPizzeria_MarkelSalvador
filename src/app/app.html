@@ -1,17 +1,4 @@
-<div class="container-fluid">
-
-
+<div class="container">
   <app-navbar (busqueda)="filtrar($event)"></app-navbar>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    @for (item of pizzasEncotradas; track $index) {
-    <app-card-pizza [pizza]="item", (cantidadSeleccionada)="recibirCantidad($event)"></app-card-pizza>
-    }
-  </div>
-</div>
-
-
-<div class="container-fluid">
-  <app-formulario></app-formulario>
-
-
+<router-outlet></router-outlet>
 </div>

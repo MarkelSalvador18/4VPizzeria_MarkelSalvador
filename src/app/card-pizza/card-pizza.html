@@ -1,10 +1,12 @@
 <div class="col">
   <div class="card h-100">
     <img src={{pizza().imagen}} class="card-img-top" alt="Pizza Margarita">
-    <div class="card-body">
+    <div class="card-body d-flex flex-column justify-content-between">
+      
       <h5 class="card-title">{{pizza().nombre}}</h5>
       <p class="card-text">{{pizza().ingredientes}}</p>
       <p class="card-text">{{pizza().precio}}</p>
+
       <form class="d-flex align-items-center gap-3">
         <input type="number" formControlName="cantidad" class="form-control" min="1">
         <i class="bi bi-cart fs-3 carrito-icon" (click)="onCarritoClick()"></i>
