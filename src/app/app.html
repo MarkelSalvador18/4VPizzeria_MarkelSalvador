@@ -1,4 +1,8 @@
 <div class="container">
   <app-navbar (busqueda)="filtrar($event)"></app-navbar>
+  @for (item of pedido; track $index) {
+<app-card-pizza [pizza]="item.pizza"(pizzaAniadida)="onPizzAniadida($event)"  ></app-card-pizza>
+  }
+  
 <router-outlet></router-outlet>
 </div>
