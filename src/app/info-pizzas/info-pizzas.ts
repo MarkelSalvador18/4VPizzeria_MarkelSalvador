@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModelPizza } from '../models/ModelPizza';
 import { CardPizza } from '../card-pizza/card-pizza';
@@ -33,6 +33,12 @@ export class InfoPizzas {
       }
       this.filtrar(busqueda);
     });
+  }
+    pizzaAniadida = output<{pizza: ModelPizza, cantidad: number}>();
+  onCarrito(pizza: ModelPizza, cantidad: number){
+
+    this.pizzaAniadida.emit({pizza: pizza, 
+      cantidad: cantidad});
   }
 
   pizzas: ModelPizza[] = [

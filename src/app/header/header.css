@@ -1,11 +1,7 @@
-.navbar-logo {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
+header {
+  background: #ffffff;
 }
 
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+header span {
+  letter-spacing: 1px;
 }

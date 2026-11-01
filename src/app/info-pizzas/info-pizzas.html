@@ -1,5 +1,5 @@
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
     @for (item of pizzasEncotradas(); track $index) {
-    <app-card-pizza [pizza]="item"></app-card-pizza>
+    <app-card-pizza (pizzaAniadida)="onCarrito($event.pizza, $event.cantidad)" [pizza]="item"></app-card-pizza>
     }
   </div>

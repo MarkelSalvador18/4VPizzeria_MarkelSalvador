@@ -1,54 +1,74 @@
 <form [formGroup]="agrupar">
-    <div class="row mb-3">
-      <label for="inputText" class="col-sm-2 col-form-label">Direccion</label>
-      <div class="col-sm-10">
-        <input formControlName="direccion" type="email" class="form-control" id="inputText">
-      </div>
+  <div class="row mb-3">
+    <label for="inputText" class="col-sm-2 col-form-label">Direccion</label>
+    <div class="col-sm-10">
+      <input formControlName="direccion" type="email" class="form-control" id="inputText">
+      @if (mensajeValidadodes.direccion.invalid && mensajeValidadodes.direccion.touched) {
+      <small class="text-danger">La dirección es obligatoria</small>
+      }
+
     </div>
-    <div class="row mb-3">
-      <label for="inputHours" class="col-sm-2 col-form-label">Hora</label>
-      <div class="col-sm-10">
-        <input formControlName="hora" type="time" class="form-control" id="inputHours">
-      </div>
+  </div>
+  <div class="row mb-3">
+    <label for="inputHours" class="col-sm-2 col-form-label">Hora</label>
+    <div class="col-sm-10">
+      <input formControlName="hora" type="time" class="form-control" id="inputHours">
+      @if (mensajeValidadodes.hora.invalid && mensajeValidadodes.direccion.touched) {
+        <small class="text-danger">La hora de entrega es obligatoria</small>
+      }
     </div>
-    <fieldset class="row mb-3">
-      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input formControlName="tipoDePago" class="form-check-input" type="radio" name="gridRadios" id="bizum" value="bizum">
-          <label class="form-check-label" for="gridRadios1">
-            Bizum
-          </label>
-        </div>
-        <div class="form-check">
-          <input formControlName="tipoDePago" class="form-check-input" type="radio" name="gridRadios" id="tarjeta" value="tarjeta" >
-          <label class="form-check-label" for="gridRadios2">
-            Tarjeta
-          </label>
-
-        </div>
-
-        @if (agrupar.controls.tipoDePago.value == 'bizum') {
-          
-          <input formControlName="bizumNumeroTel" type="text" class="form-control" id="inputTextTel"> 
-        } @else if(agrupar.controls.tipoDePago.value == 'tarjeta') {
-          <input formControlName="numeroTarjeta" type="text" class="form-control" id="inputTextTel"> 
-          <label class="form-check-label" for="gridRadios2">
-            
-          </label>
-          <input formControlName="fecha" type="month" class="form-control" id="inputTextTel">
-          <label class="form-check-label" for="gridRadios2">
-            
-          </label> 
-          <input formControlName="ccvNum" type="text" class="form-control" id="inputTextTel"> 
-          <label class="form-check-label" for="gridRadios2">
-            CVV
-          </label>
-          
-        }
+  </div>
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input formControlName="tipoDePago" class="form-check-input" type="radio" name="gridRadios" id="bizum"
+          value="bizum">
+        <label class="form-check-label" for="gridRadios1">
+          Bizum
+        </label>
+      </div>
+      <div class="form-check">
+        <input formControlName="tipoDePago" class="form-check-input" type="radio" name="gridRadios" id="tarjeta"
+          value="tarjeta">
+        <label class="form-check-label" for="gridRadios2">
+          Tarjeta
+        </label>
 
       </div>
-    </fieldset>
 
-    <button type="submit" class="btn btn-primary">Pedir</button>
-  </form>
+      @if (agrupar.controls.tipoDePago.value == 'bizum') {
+
+      <input formControlName="bizumNumeroTel" type="text" class="form-control" id="inputTextTel">
+      @if (mensajeValidadodes.bizumNumeroTel.invalid && mensajeValidadodes.bizumNumeroTel.touched) {
+        <small class="text-danger">El número de bizum no puede ser inferior ni mayor a 9 carácteres</small>
+      }
+      } @else if(agrupar.controls.tipoDePago.value == 'tarjeta') {
+      <input formControlName="numeroTarjeta" type="text" class="form-control" id="inputTextTel">
+      <label class="form-check-label" for="gridRadios2">
+        @if (mensajeValidadodes.numeroTarjeta.invalid && mensajeValidadodes.numeroTarjeta.touched) {
+        <small class="text-danger">El número de tarjeta no puede ser inferior ni mayor a 16 carácteres</small>
+      }
+      </label>
+      <input formControlName="fecha" type="month" class="form-control" id="inputTextTel">
+      @if (mensajeValidadodes.fecha.invalid && mensajeValidadodes.fecha.touched) {
+        <small class="text-danger">La fecha es obligatoria</small>
+      }
+      <label class="form-check-label" for="gridRadios2">
+
+      </label>
+      <input formControlName="ccvNum" type="text" class="form-control" id="inputTextTel">
+      @if (mensajeValidadodes.ccvNum.invalid && mensajeValidadodes.ccvNum.touched) {
+        <small class="text-danger">El número de CCV no puede ser inferior ni mayor a 3 carácteres</small>
+      }
+      <label class="form-check-label" for="gridRadios2">
+        CVV
+      </label>
+
+      }
+
+    </div>
+  </fieldset>
+<a href="/listadoPizzas" class="btn btn-primary">Go somewhere</a>
+  
+</form>

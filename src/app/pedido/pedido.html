@@ -1,1 +1,11 @@
-<p>pedido works!</p>
+<div class="pedido-container">
+  
+  @for (item of pedido(); track $index) {
+    <div class="pedido-item p-2 mb-2 border rounded">
+      <div class="fw-bold">{{ item.pizza.nombre }}</div>
+      <div>Cantidad: {{ item.cantidad }}</div>
+      <div>Precio: {{ item.pizza.precio }} €</div>
+      <div>Subtotal: {{ item.pizza.precio * item.cantidad }} €</div>
+    </div>
+  }
+</div>

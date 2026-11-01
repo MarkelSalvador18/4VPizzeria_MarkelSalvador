@@ -1,8 +1,9 @@
 <div class="container">
+  <app-header></app-header>
   <app-navbar (busqueda)="filtrar($event)"></app-navbar>
-  @for (item of pedido; track $index) {
-<app-card-pizza [pizza]="item.pizza"(pizzaAniadida)="onPizzAniadida($event)"  ></app-card-pizza>
-  }
   
-<router-outlet></router-outlet>
+<app-pedido [pedido]="pedido()"></app-pedido>
+
+<router-outlet (activate)="componenteActivado($event)"></router-outlet>
+<app-footer></app-footer>
 </div>

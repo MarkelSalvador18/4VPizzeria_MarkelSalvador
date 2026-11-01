@@ -2,6 +2,7 @@ import { Component, EventEmitter, ModelFunction, Output, input, output } from '@
 import { ModelPizza } from '../models/ModelPizza';
 
 
+
 @Component({
   imports: [],
   selector: 'app-card-pizza',
